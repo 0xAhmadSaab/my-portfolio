@@ -3,21 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ahmed Saab — Cyber-Minimalist Software Portfolio</title>
+  <title>Ahmad Saab — Full-Stack & AI Engineer Portfolio</title>
   
-  <!-- Tailwind CSS CDN -->
+  <!-- CDNs -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Anime.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-  <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- Devicon CDN for Official Tech Icons -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
   
-  <!-- Google Fonts: Syne, Space Grotesk, JetBrains Mono -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
 
   <script>
     tailwind.config = {
@@ -35,7 +32,6 @@
   </script>
 
   <style>
-    /* 5 Curated Cyber Themes */
     :root, [data-theme="cyan"] {
       --bg-color: #040406;
       --surface-color: #0b0c12;
@@ -48,7 +44,6 @@
       --grid-line: rgba(0, 240, 255, 0.22);
       --theme-name: "CYBER_CYAN";
     }
-
     [data-theme="matrix"] {
       --bg-color: #020703;
       --surface-color: #051408;
@@ -61,7 +56,6 @@
       --grid-line: rgba(0, 255, 102, 0.22);
       --theme-name: "MATRIX_GREEN";
     }
-
     [data-theme="synthwave"] {
       --bg-color: #090314;
       --surface-color: #140728;
@@ -74,7 +68,6 @@
       --grid-line: rgba(255, 0, 127, 0.22);
       --theme-name: "TOKYO_SYNTH";
     }
-
     [data-theme="amber"] {
       --bg-color: #080502;
       --surface-color: #140e04;
@@ -87,7 +80,6 @@
       --grid-line: rgba(255, 176, 0, 0.22);
       --theme-name: "AMBER_CRT";
     }
-
     [data-theme="monochrome"] {
       --bg-color: #050505;
       --surface-color: #111111;
@@ -121,14 +113,9 @@
     .accent-modal-border { border-color: var(--accent) !important; }
 
     @keyframes moveCyberGrid {
-      0% {
-        background-position: 0px 0px;
-      }
-      100% {
-        background-position: 60px 60px;
-      }
+      0% { background-position: 0px 0px; }
+      100% { background-position: 60px 60px; }
     }
-
     .moving-grid-bg {
       position: fixed;
       inset: 0;
@@ -142,7 +129,6 @@
       pointer-events: none;
       z-index: 0;
     }
-
     .vignette-overlay {
       position: fixed;
       inset: 0;
@@ -162,13 +148,11 @@
       -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
     }
-
     .glass-modal-backdrop {
       background-color: rgba(0, 0, 0, 0.85);
       -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
     }
-
     .status-dock {
       background-color: rgba(11, 12, 18, 0.92);
       border: 1px solid var(--border-color);
@@ -186,10 +170,8 @@
 
     .custom-cursor-ring {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 34px;
-      height: 34px;
+      top: 0; left: 0;
+      width: 34px; height: 34px;
       border-radius: 50%;
       border: 1.5px solid var(--accent);
       pointer-events: none;
@@ -200,10 +182,8 @@
     }
     .custom-cursor-dot {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 6px;
-      height: 6px;
+      top: 0; left: 0;
+      width: 6px; height: 6px;
       border-radius: 50%;
       background-color: var(--accent);
       pointer-events: none;
@@ -226,68 +206,23 @@
       transform: translateY(-2px);
     }
 
-    .terminal-scroll::-webkit-scrollbar {
-      width: 4px;
-    }
-    .terminal-scroll::-webkit-scrollbar-thumb {
-      background: var(--border-color);
-    }
-
-    /* ===================================================
-       RESPONSIVE MEDIA QUERIES & SCREEN ADAPTATIONS
-       =================================================== */
-
-    /* Touch & Mobile Pointer Optimization */
+    /* Media Queries */
     @media (pointer: coarse), (hover: none) {
-      .custom-cursor-ring,
-      .custom-cursor-dot {
-        display: none !important;
-      }
+      .custom-cursor-ring, .custom-cursor-dot { display: none !important; }
     }
-
-    /* Small Mobile Devices (<= 480px) */
     @media (max-width: 480px) {
-      .moving-grid-bg {
-        background-size: 38px 38px;
-        animation-duration: 2.2s;
-      }
-      .hero-title {
-        font-size: 2.25rem !important;
-        line-height: 1.15 !important;
-      }
-      .photo-frame-box {
-        width: 210px !important;
-        height: 210px !important;
-      }
-      .terminal-dump-box {
-        font-size: 10px !important;
-        padding: 0.75rem !important;
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch;
-      }
-      .status-dock {
-        font-size: 10px !important;
-        padding: 0.5rem 0.75rem !important;
-      }
-      .sharp-card {
-        padding: 1rem !important;
-      }
+      .moving-grid-bg { background-size: 38px 38px; animation-duration: 2.2s; }
+      .hero-title { font-size: 2.25rem !important; line-height: 1.15 !important; }
+      .photo-frame-box { width: 210px !important; height: 210px !important; }
+      .terminal-dump-box { font-size: 10px !important; padding: 0.75rem !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+      .status-dock { font-size: 10px !important; padding: 0.5rem 0.75rem !important; }
+      .sharp-card { padding: 1rem !important; }
     }
-
-    /* Tablets & Medium Screens (481px to 768px) */
     @media (min-width: 481px) and (max-width: 768px) {
-      .photo-frame-box {
-        width: 250px !important;
-        height: 250px !important;
-      }
+      .photo-frame-box { width: 250px !important; height: 250px !important; }
     }
-
-    /* Modals Responsive Handling for Mobile Screens */
     @media (max-height: 720px) {
-      .modal-inner-scroll {
-        max-height: 72vh !important;
-        overflow-y: auto !important;
-      }
+      .modal-inner-scroll { max-height: 72vh !important; overflow-y: auto !important; }
     }
   </style>
 </head>
@@ -298,7 +233,7 @@
   <div id="cursor-ring" class="custom-cursor-ring hidden md:block"></div>
   <div id="cursor-dot" class="custom-cursor-dot hidden md:block"></div>
 
-  <!-- NAVIGATION HEADER -->
+  <!-- HEADER -->
   <header class="w-full site-header">
     <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between relative z-10">
       <div class="flex items-center space-x-3">
@@ -315,13 +250,13 @@
         <a href="#contact" class="hover:text-accent transition-colors">/06_CONTACT</a>
       </nav>
 
-      <div class="flex items-center space-x-3">
-        <button id="theme-btn" type="button" onclick="window.cycleTheme()" class="px-3 py-1.5 border border-zinc-800 hover:border-zinc-500 text-xs font-mono text-zinc-300 bg-zinc-900/80 flex items-center gap-2 cursor-pointer transition-all active:scale-95" title="Click to cycle themes">
+      <div class="flex items-center space-x-2 sm:space-x-3">
+        <button id="theme-btn" type="button" onclick="window.cycleTheme()" class="px-2.5 sm:px-3 py-1.5 border border-zinc-800 hover:border-zinc-500 text-xs font-mono text-zinc-300 bg-zinc-900/80 flex items-center gap-2 cursor-pointer transition-all active:scale-95" title="Cycle Themes">
           <i data-lucide="palette" class="w-3.5 h-3.5 text-accent"></i>
           <span id="theme-label" class="font-bold hidden sm:inline">CYBER_CYAN</span>
         </button>
 
-        <button id="audio-toggle" type="button" onclick="window.toggleAudio()" class="px-2.5 py-1.5 border border-zinc-800 hover:border-zinc-600 text-[11px] font-mono text-zinc-400 bg-zinc-900/60 flex items-center gap-1.5 cursor-pointer" title="Toggle audio feedback">
+        <button id="audio-toggle" type="button" onclick="window.toggleAudio()" class="px-2 sm:px-2.5 py-1.5 border border-zinc-800 hover:border-zinc-600 text-[11px] font-mono text-zinc-400 bg-zinc-900/60 flex items-center gap-1.5 cursor-pointer" title="Toggle Audio FX">
           <i data-lucide="volume-2" class="w-3.5 h-3.5 text-accent" id="audio-icon"></i>
           <span id="audio-label" class="hidden sm:inline">FX: ON</span>
         </button>
@@ -331,19 +266,18 @@
           <span>CTRL+K</span>
         </button>
 
-        <a href="#contact" class="px-3.5 py-1.5 bg-accent font-mono text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-all flex items-center gap-1.5 shadow-accent">
+        <a href="#contact" class="px-2.5 sm:px-3.5 py-1.5 bg-accent font-mono text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-all flex items-center gap-1.5 shadow-accent">
           <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
           <span class="hidden sm:inline">CLI_CONNECT</span>
         </a>
 
-        <!-- Mobile Navigation Toggle -->
         <button type="button" onclick="window.toggleMobileMenu()" class="md:hidden p-1.5 border border-zinc-800 hover:border-accent text-zinc-300 bg-zinc-900/80 cursor-pointer flex items-center justify-center transition-all" title="Toggle Navigation Menu">
           <i data-lucide="menu" class="w-4 h-4 text-accent"></i>
         </button>
       </div>
     </div>
     
-    <!-- Mobile Collapsible Navigation Menu -->
+    <!-- Mobile Menu Drawer -->
     <div id="mobile-menu-drawer" class="md:hidden hidden border-t themed-border bg-[#040406]/95 px-6 py-4 space-y-3 font-mono text-xs text-zinc-300">
       <a href="#about" onclick="window.toggleMobileMenu(false)" class="block hover:text-accent transition-colors py-1.5 border-b border-zinc-900">/01_ABOUT</a>
       <a href="#codeforces" onclick="window.toggleMobileMenu(false)" class="block hover:text-accent transition-colors py-1.5 border-b border-zinc-900">/02_CODEFORCES</a>
@@ -354,9 +288,9 @@
     </div>
   </header>
 
-  <!-- LIVE SYSTEM TELEMETRY DOCK (Damascus Time & Uptime) -->
+  <!-- LIVE STATUS DOCK -->
   <div class="max-w-7xl mx-auto px-6 pt-4 relative z-10">
-    <div class="status-dock px-4 py-2 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+    <div class="status-dock px-4 py-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono">
       <div class="flex items-center space-x-2">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
         <span class="text-emerald-400 font-bold">STATUS: READY_FOR_DEPLOYMENT // 2026 INTERNSHIP</span>
@@ -378,14 +312,14 @@
   <main class="max-w-7xl mx-auto px-6 py-8 lg:py-16 space-y-28 relative z-10">
     <!-- SECTION 1: HERO -->
     <section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-2">
-      <div class="lg:col-span-5 space-y-6 hero-text">
+      <div class="lg:col-span-5 space-y-5 hero-text">
         <div class="inline-flex items-center space-x-2 px-3 py-1 bg-zinc-900/90 border themed-border text-zinc-300 text-xs font-mono">
           <i data-lucide="activity" class="w-3.5 h-3.5 text-emerald-400 animate-pulse"></i>
           <span>OPEN FOR INTERNSHIP // FRONTEND & AI</span>
         </div>
 
-        <h1 class="text-4xl sm:text-6xl hero-title font-syne font-bold tracking-tight text-white leading-none" onmouseenter="window.scrambleText(this)">
-          AHMED <br />
+        <h1 class="text-4xl sm:text-6xl hero-title font-syne font-bold tracking-tight text-white leading-none glitch-on-scroll" >
+          Ahmad <br />
           <span class="text-accent drop-shadow-[0_0_20px_var(--accent-glow)] font-mono text-3xl sm:text-5xl">&lt;/SAAB&gt;</span>
         </h1>
 
@@ -396,11 +330,11 @@
 
         <div class="text-zinc-400 text-sm sm:text-base leading-relaxed space-y-3 pt-1">
           <p>
-            I am Ahmed Saab, a fourth-year Informatics Engineering student. I possess a critical eye for visuals and a refined taste in UI/UX design, alongside solid expertise in infrastructure architecture and back-end development. I see no divide between technical aesthetics and robust programming; rather, I view them as two sides of the same coin in the digital product development journey.
+I am Ahmed Saab, a fourth-year Information Engineering student with a refined eye for UI/UX and a strong command of back-end architecture and system development. I bridge elegant front-end experiences with scalable back-end infrastructures, treating them as complementary forces. My ambition is to grow into a Full-Stack Developer and AI Engineer—leading projects from concept to intelligent, production-ready solutions that merge human-centric design with algorithmic power.
+
+
           </p>
-          <p>
-            I am charting a career path that transcends a single specialization, aiming to become a Full-Stack Developer and AI Engineer capable of leading projects from initial concept to scalable, intelligent solutions&mdash;blending a seamless user experience with the power of advanced algorithms.
-          </p>
+       
         </div>
 
         <div class="pt-2 flex flex-wrap gap-3 font-mono text-xs">
@@ -432,13 +366,13 @@
             <img 
               id="profile-img"
               src="https://github.com/PsycoPython.png" 
-              alt="Ahmed Saab"
+              alt="Ahmad Saab"
               class="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534972195531-a756b1126f24?q=80&w=800&auto=format&fit=crop';"
             />
             
             <div class="absolute bottom-0 inset-x-0 bg-black/85 p-2 border-t border-zinc-800 flex items-center justify-between text-[10px] font-mono z-20">
-              <span class="text-zinc-300">AHMED_SAAB.SQUARE</span>
+              <span class="text-zinc-300">Ahmad_SAAB.SQUARE</span>
               <span class="text-accent flex items-center gap-1 font-bold">
                 <span class="w-1.5 h-1.5 rounded-full bg-accent animate-ping"></span>
                 ACTIVE
@@ -466,9 +400,9 @@
 
             <div class="flex justify-between items-center py-1 border-b border-zinc-900">
               <span class="text-zinc-400 flex items-center gap-2">
-                <i data-lucide="code-2" class="w-3.5 h-3.5 text-accent"></i> ICPC Solved
+                <i data-lucide="code-2" class="w-3.5 h-3.5 text-accent"></i> Codeforces Solved
               </span>
-              <span class="text-accent font-bold">189 Problems</span>
+              <span class="text-accent font-bold">+100 Problems</span>
             </div>
 
             <div class="flex justify-between items-center py-1 border-b border-zinc-900">
@@ -480,7 +414,7 @@
 
             <div class="flex justify-between items-center py-1 border-b border-zinc-900">
               <span class="text-zinc-400 flex items-center gap-2">
-                <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-accent"></i> Degree
+                <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-accent"></i> Education
               </span>
               <span class="text-white">Informatics Engineering (4th Year)</span>
             </div>
@@ -502,12 +436,12 @@
       </div>
     </section>
 
-    <!-- SECTION 2: CODEFORCES & ALGORITHMIC RADAR (Option 1.1) -->
+    <!-- SECTION 2: CODEFORCES & PROBLEM SOLVING -->
     <section id="codeforces" class="space-y-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-zinc-800 pb-4">
         <div>
           <span class="text-accent font-mono text-xs uppercase tracking-widest">// 02. PROBLEM SOLVING & ALGORITHMIC PRACTICE</span>
-          <h2 class="text-3xl lg:text-4xl font-syne font-bold text-white mt-1" onmouseenter="window.scrambleText(this)">CODEFORCES & PROBLEM SOLVING JOURNEY</h2>
+          <h2 class="text-3xl lg:text-4xl font-syne font-bold text-white mt-1 glitch-on-scroll">CODEFORCES & PROBLEM SOLVING JOURNEY</h2>
         </div>
         <div class="flex items-center gap-3 text-xs font-mono mt-2 md:mt-0">
           <a href="https://codeforces.com/profile/0x-A7mvd" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 bg-zinc-900 border border-zinc-800 hover:border-accent text-accent transition-all flex items-center gap-1.5">
@@ -520,15 +454,14 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Problem Solving Volume -->
         <div class="sharp-card p-6 border space-y-3">
           <div class="flex justify-between items-center text-xs font-mono text-zinc-500">
             <span>SOLVED_PROBLEMS</span>
             <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
           </div>
-          <div class="text-3xl font-syne font-bold text-white">189+</div>
+          <div class="text-3xl font-syne font-bold text-white">+100+</div>
           <p class="text-zinc-400 text-xs leading-relaxed">
-            Conquered problems across Codeforces, ICPC training gyms, and competitive programming archives.
+            Problems solved on Codeforces and ICPC training archives, building structured analytical foundations.
           </p>
           <div class="pt-2 border-t border-zinc-900 text-[11px] font-mono text-accent flex items-center justify-between">
             <span>ICPC ID: JNVO0T4UN5FP</span>
@@ -536,7 +469,6 @@
           </div>
         </div>
 
-        <!-- Dynamic Programming & Graphs -->
         <div class="sharp-card p-6 border space-y-3">
           <div class="flex justify-between items-center text-xs font-mono text-zinc-500">
             <span>PRACTICE_DOMAINS</span>
@@ -547,12 +479,11 @@
             Algorithmic foundations, linear searches, sorting algorithms, conditional simulations, and logical deductions.
           </p>
           <div class="pt-2 border-t border-zinc-900 text-[11px] font-mono text-zinc-400 flex items-center justify-between">
-            <span>COMPLEXITY</span>
-            <span class="text-accent">O(V + E) / O(N^2)</span>
+            <span>LOGIC</span>
+            <span class="text-accent">Deductive Reasoning</span>
           </div>
         </div>
 
-        <!-- Data Structures -->
         <div class="sharp-card p-6 border space-y-3">
           <div class="flex justify-between items-center text-xs font-mono text-zinc-500">
             <span>DATA_STRUCTURES_FOUNDATIONS</span>
@@ -563,24 +494,23 @@
             Fundamental data structures, array manipulations, hash maps, basic queues, and two-pointer techniques.
           </p>
           <div class="pt-2 border-t border-zinc-900 text-[11px] font-mono text-zinc-400 flex items-center justify-between">
-            <span>EFFICIENCY</span>
-            <span class="text-purple-400">O(N log N)</span>
+            <span>STRUCTURES</span>
+            <span class="text-purple-400">Essential Memory</span>
           </div>
         </div>
 
-        <!-- Execution Stack -->
         <div class="sharp-card p-6 border space-y-3">
           <div class="flex justify-between items-center text-xs font-mono text-zinc-500">
-            <span>EXECUTION_STACK</span>
+            <span>EXECUTION_LANGUAGE</span>
             <i class="devicon-cplusplus-plain colored text-lg"></i>
           </div>
-          <div class="text-xl font-syne font-bold text-white">C++ & Fast I/O</div>
+          <div class="text-xl font-syne font-bold text-white">C++ Problem Solving</div>
           <p class="text-zinc-400 text-xs leading-relaxed">
-            STL vectors, maps, bitsets, competitive macro templates, and memory-optimized pointer management.
+            Standard Template Library (STL), vectors, sorting functions, memory management, and fast execution routines.
           </p>
           <div class="pt-2 border-t border-zinc-900 text-[11px] font-mono text-zinc-400 flex items-center justify-between">
             <span>RUNTIME</span>
-            <span class="text-emerald-400">&lt; 150ms AVG</span>
+            <span class="text-emerald-400">High Performance</span>
           </div>
         </div>
       </div>
@@ -591,7 +521,7 @@
       <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-zinc-800 pb-4">
         <div>
           <span class="text-accent font-mono text-xs uppercase tracking-widest">// 03. PORTFOLIO MATRIX</span>
-          <h2 class="text-3xl lg:text-4xl font-syne font-bold text-white mt-1" onmouseenter="window.scrambleText(this)">FEATURED SYSTEMS</h2>
+          <h2 class="text-3xl lg:text-4xl font-syne font-bold text-white mt-1 glitch-on-scroll">FEATURED SYSTEMS</h2>
         </div>
         <p class="text-xs font-mono text-zinc-500 mt-2 md:mt-0">CLICK CARDS FOR ARCHITECTURE INSPECTION</p>
       </div>
@@ -640,8 +570,7 @@
           </div>
           <div class="mt-6 pt-4 border-t border-zinc-900 flex items-center justify-between">
             <div class="flex gap-2 items-center">
-              <i class="devicon-csharp-plain colored text-base"></i>
-              
+              <span class="px-2 py-0.5 bg-zinc-900 text-accent text-[11px] font-mono border border-zinc-800">C# OOP</span>
             </div>
             <span class="text-zinc-400 text-xs font-mono flex items-center gap-1">Inspect <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>
           </div>
@@ -696,12 +625,12 @@
       </div>
     </section>
 
-    <!-- SECTION 4: GITHUB REPOSITORIES LIVE FEED (Option 2) -->
+    <!-- SECTION 4: GITHUB REPOSITORIES LIVE FEED -->
     <section id="github-repos" class="space-y-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-zinc-800 pb-4">
         <div>
           <span class="text-accent font-mono text-xs uppercase tracking-widest">// 04. GITHUB REPOSITORIES PIPELINE</span>
-          <h2 class="text-3xl lg:text-4xl font-syne font-bold text-white mt-1" onmouseenter="window.scrambleText(this)">CODEBASES & REPOSITORIES</h2>
+          <h2 class="text-3xl lg:text-4xl font-syne font-bold text-white mt-1 glitch-on-scroll">CODEBASES & REPOSITORIES</h2>
         </div>
         <a href="https://github.com/PsycoPython" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-accent hover:underline flex items-center gap-1.5 mt-2 md:mt-0">
           <i class="devicon-github-original text-base text-accent"></i> View All on @PsycoPython <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
@@ -718,12 +647,13 @@
       <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-zinc-800 pb-4">
         <div>
           <span class="text-accent font-mono text-xs uppercase tracking-widest">// 05. TECH MATRIX</span>
-          <h2 class="text-3xl lg:text-4xl font-syne font-bold text-white mt-1" onmouseenter="window.scrambleText(this)">PROGRAMMING ARSENAL</h2>
+          <h2 class="text-3xl lg:text-4xl font-syne font-bold text-white mt-1 glitch-on-scroll">PROGRAMMING ARSENAL</h2>
         </div>
         <p class="text-xs font-mono text-zinc-500 mt-2 md:mt-0">OFFICIAL TECH & RUNTIMES</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Frontend -->
         <div class="sharp-card p-6 border space-y-4">
           <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
             <span class="text-accent font-mono text-xs font-bold uppercase tracking-wider">FRONTEND CORE</span>
@@ -757,6 +687,7 @@
           </div>
         </div>
 
+        <!-- Backend -->
         <div class="sharp-card p-6 border space-y-4">
           <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
             <span class="text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider">BACKEND & ROADMAP</span>
@@ -765,11 +696,11 @@
           <div class="grid grid-cols-2 gap-3 font-mono text-xs">
             <div class="flex items-center gap-2.5 p-2 bg-zinc-900/60 border border-emerald-900/40">
               <i class="devicon-nodejs-plain colored text-xl"></i>
-              <span class="text-emerald-300">Node.js</span>
+              <span class="text-emerald-300">Node.js (In Prog)</span>
             </div>
             <div class="flex items-center gap-2.5 p-2 bg-zinc-900/60 border border-zinc-800">
               <i class="devicon-csharp-plain colored text-xl"></i>
-              <span>C#</span>
+              <span>C# (OOP)</span>
             </div>
             <div class="flex items-center gap-2.5 p-2 bg-zinc-900/60 border border-zinc-800">
               <i class="devicon-python-plain colored text-xl"></i>
@@ -782,9 +713,10 @@
           </div>
         </div>
 
+        <!-- Algorithms -->
         <div class="sharp-card p-6 border space-y-4">
           <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
-            <span class="text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">ALGORITHMS & CORE</span>
+            <span class="text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">FOUNDATIONS & LOGIC</span>
             <i class="devicon-cplusplus-plain colored text-lg"></i>
           </div>
           <div class="grid grid-cols-2 gap-3 font-mono text-xs">
@@ -794,7 +726,7 @@
             </div>
             <div class="flex items-center gap-2.5 p-2 bg-zinc-900/60 border border-amber-900/40">
               <i class="devicon-codepen-plain text-amber-400 text-xl"></i>
-              <span class="text-amber-300">189 ICPC</span>
+              <span class="text-amber-300">+100 CF Solved</span>
             </div>
             <div class="flex items-center gap-2.5 p-2 bg-zinc-900/60 border border-zinc-800">
               <i class="devicon-matlab-plain colored text-xl"></i>
@@ -807,6 +739,7 @@
           </div>
         </div>
 
+        <!-- Mobile & Environment -->
         <div class="sharp-card p-6 border space-y-4">
           <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
             <span class="text-purple-400 font-mono text-xs font-bold uppercase tracking-wider">MOBILE & DEVOPS</span>
@@ -834,18 +767,17 @@
       </div>
     </section>
 
-    <!-- SECTION 6: CONTACT AS A DEDICATED CYBER TERMINAL (Option 5) -->
+    <!-- SECTION 6: CONTACT AS A DEDICATED CYBER TERMINAL -->
     <section id="contact" class="space-y-6">
       <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-zinc-800 pb-4">
         <div>
           <span class="text-accent font-mono text-xs uppercase tracking-widest">// 06. SECURE COMMUNICATION PORT</span>
-          <h2 class="text-3xl lg:text-4xl font-syne font-bold text-white mt-1" onmouseenter="window.scrambleText(this)">TERMINAL ACCESS GATEWAY</h2>
+          <h2 class="text-3xl lg:text-4xl font-syne font-bold text-white mt-1 glitch-on-scroll">TERMINAL ACCESS GATEWAY</h2>
         </div>
         <p class="text-xs font-mono text-zinc-500 mt-2 md:mt-0">BASH // INTERACTIVE CLI</p>
       </div>
 
       <div class="sharp-card overflow-hidden border accent-modal-border">
-        <!-- Terminal Titlebar -->
         <div class="bg-zinc-900/90 border-b border-zinc-800 px-4 py-3 flex items-center justify-between">
           <div class="flex items-center space-x-2">
             <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
@@ -856,17 +788,16 @@
           <span class="text-xs font-mono text-accent">READY</span>
         </div>
 
-        <!-- Terminal Body -->
         <div class="p-6 md:p-8 space-y-6 font-mono text-xs">
           <div>
             <span class="text-accent font-bold">$ ./dump_credentials.sh</span>
             <div class="mt-3 p-4 bg-black/60 border border-zinc-800/80 text-zinc-300 space-y-2 terminal-dump-box">
-              <p><span class="text-zinc-500">[+] DEVELOPER:</span>    <span class="text-white font-bold">Ahmed Saab</span></p>
+              <p><span class="text-zinc-500">[+] DEVELOPER:</span>    <span class="text-white font-bold">Ahmad Saab</span></p>
               <p><span class="text-zinc-500">[+] PRIMARY_MAIL:</span> <a href="mailto:saaba0054@gmail.com" class="text-accent underline">saaba0054@gmail.com</a></p>
               <p><span class="text-zinc-500">[+] LOCATION:</span>     <span class="text-white">Syria</span></p>
-              <p><span class="text-zinc-500">[+] CODEFORCES:</span>   <a href="https://codeforces.com/profile/0x-A7mvd" target="_blank" rel="noopener noreferrer" class="text-accent underline">@0x-A7mvd (189 Solved)</a></p>
+              <p><span class="text-zinc-500">[+] CODEFORCES:</span>   <a href="https://codeforces.com/profile/0x-A7mvd" target="_blank" rel="noopener noreferrer" class="text-accent underline">@0x-A7mvd (+100 Solved)</a></p>
               <p><span class="text-zinc-500">[+] GITHUB_HUB:</span>   <a href="https://github.com/PsycoPython" target="_blank" rel="noopener noreferrer" class="text-accent underline">@PsycoPython</a></p>
-              </div>
+            </div>
           </div>
 
           <div>
@@ -899,7 +830,7 @@
   </main>
 
   <footer class="border-t border-zinc-900 py-8 text-center text-zinc-600 text-xs font-mono relative z-10">
-    AHMED SAAB &copy; 2026 // CYBER-MINIMALIST PORTFOLIO ARCHITECTURE
+    Ahmad SAAB &copy; 2026 // CYBER-MINIMALIST PORTFOLIO ARCHITECTURE
   </footer>
 
   <!-- TERMINAL COMMAND PALETTE (CTRL + K) -->
@@ -915,7 +846,7 @@
         <button onclick="window.toggleTerminal(false)" type="button" class="text-zinc-500 hover:text-white text-xs font-mono">[ESC]</button>
       </div>
 
-      <div id="terminal-output" class="p-4 font-mono text-xs text-zinc-300 h-64 overflow-y-auto space-y-2 terminal-scroll">
+      <div id="terminal-output" class="p-4 font-mono text-xs text-zinc-300 h-64 overflow-y-auto space-y-2 terminal-scroll modal-inner-scroll">
         <p class="text-accent">&gt; Cyber-Minimal System Initialized [v4.27].</p>
         <p class="text-zinc-500">&gt; Type <span class="text-white font-bold">help</span> to view commands, or try <span class="text-accent">codeforces</span>, <span class="text-accent">repos</span>, <span class="text-accent">theme</span>, <span class="text-accent">contact</span>, <span class="text-accent">clear</span>.</p>
       </div>
@@ -929,7 +860,7 @@
 
   <!-- PROJECT INSPECTION MODAL -->
   <div id="project-modal" class="fixed inset-0 z-50 glass-modal-backdrop hidden flex items-center justify-center p-4">
-    <div class="sharp-card border w-full max-w-xl p-6 relative accent-modal-border">
+    <div class="sharp-card border w-full max-w-xl p-6 relative accent-modal-border modal-inner-scroll">
       <button onclick="window.closeModal()" type="button" class="absolute top-4 right-4 text-zinc-500 hover:text-white font-mono text-xs border border-zinc-800 px-2 py-1">
         [CLOSE X]
       </button>
@@ -939,7 +870,11 @@
 
   <!-- SCRIPTS -->
   <script>
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
 
+    // Mobile Navigation Drawer
     window.toggleMobileMenu = function(forceClose) {
       var drawer = document.getElementById('mobile-menu-drawer');
       if (!drawer) return;
@@ -950,10 +885,7 @@
       }
     };
 
-    if (window.lucide) {
-      window.lucide.createIcons();
-    }
-
+    // Damascus Clock
     function updateDamascusClock() {
       var el = document.getElementById('damascus-clock');
       if (el) {
@@ -965,33 +897,58 @@
     setInterval(updateDamascusClock, 1000);
     updateDamascusClock();
 
+    // Text Scramble Effect
     window.scrambleText = function(element) {
-      var originalText = element.getAttribute('data-original-text') || element.innerText;
+      var originalHtml = element.getAttribute('data-original-html') || element.innerHTML;
+      var originalText = element.getAttribute('data-original-text') || element.innerText.trim();
+      element.setAttribute('data-original-html', originalHtml);
       element.setAttribute('data-original-text', originalText);
-      var chars = '!<>-_\\/[]{}—=+*^?#________';
+      var chars = '!<>-_\/[]{}—=+*^?#________';
       var iteration = 0;
-      if (element._scrambleInterval) {
-        clearInterval(element._scrambleInterval);
-      }
+      if (element._scrambleInterval) clearInterval(element._scrambleInterval);
       element._scrambleInterval = setInterval(function() {
         var result = '';
         for (var i = 0; i < originalText.length; i++) {
           if (i < iteration) {
             result += originalText.charAt(i);
           } else {
-            var randIdx = Math.floor(Math.random() * chars.length);
-            result += chars.charAt(randIdx);
+            result += chars.charAt(Math.floor(Math.random() * chars.length));
           }
         }
         element.innerText = result;
         if (iteration >= originalText.length) {
           clearInterval(element._scrambleInterval);
-          element.innerText = originalText;
+          element.innerHTML = originalHtml;
         }
-        iteration += 0.5;
+        iteration += 0.6;
       }, 25);
     };
 
+    // Glitch on Scroll Observer (Viewport trigger, no mouse hover)
+    function initScrollGlitch() {
+      var glitchElements = document.querySelectorAll('.glitch-on-scroll');
+      if ('IntersectionObserver' in window) {
+        var glitchObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              window.scrambleText(entry.target);
+              glitchObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+
+        glitchElements.forEach(function(el) {
+          glitchObserver.observe(el);
+        });
+      } else {
+        glitchElements.forEach(function(el) {
+          window.scrambleText(el);
+        });
+      }
+    }
+    setTimeout(initScrollGlitch, 150);
+
+    // Themes
     window.themes = [
       { id: 'cyan', name: 'CYBER_CYAN' },
       { id: 'matrix', name: 'MATRIX_GREEN' },
@@ -1028,6 +985,7 @@
       window.applyTheme(window.themes[window.currentThemeIndex].id);
     };
 
+    // Audio Synth
     window.audioEnabled = true;
     var AudioContextClass = window.AudioContext || window.webkitAudioContext;
     var audioCtx = null;
@@ -1044,9 +1002,7 @@
       try {
         var ctx = getAudioContext();
         if (!ctx) return;
-        if (ctx.state === 'suspended') {
-          ctx.resume();
-        }
+        if (ctx.state === 'suspended') ctx.resume();
         var osc = ctx.createOscillator();
         var gain = ctx.createGain();
         osc.type = type || 'sine';
@@ -1063,12 +1019,8 @@
     window.toggleAudio = function() {
       window.audioEnabled = !window.audioEnabled;
       var lbl = document.getElementById('audio-label');
-      if (lbl) {
-        lbl.innerText = window.audioEnabled ? 'FX: ON' : 'FX: OFF';
-      }
-      if (window.audioEnabled) {
-        window.playTone(880, 'triangle', 0.1);
-      }
+      if (lbl) lbl.innerText = window.audioEnabled ? 'FX: ON' : 'FX: OFF';
+      if (window.audioEnabled) window.playTone(880, 'triangle', 0.1);
     };
 
     document.querySelectorAll('a, button').forEach(function(el) {
@@ -1077,7 +1029,7 @@
     });
 
     window.copyContact = function() {
-      var data = 'Ahmed Saab | saaba0054@gmail.com |  | https://github.com/PsycoPython';
+      var data = 'Ahmad Saab | saaba0054@gmail.com | Location: Syria | https://github.com/PsycoPython';
       navigator.clipboard.writeText(data).then(function() {
         var btn = document.getElementById('copy-btn-text');
         if (btn) {
@@ -1087,6 +1039,7 @@
       });
     };
 
+    // Cursor Follower
     var cursorRing = document.getElementById('cursor-ring');
     var cursorDot = document.getElementById('cursor-dot');
     var targetX = -100, targetY = -100;
@@ -1124,6 +1077,7 @@
       cursorActive = false;
     });
 
+    // GitHub Repos API Pipeline
     function renderGitHubRepos(reposList) {
       var grid = document.getElementById('github-repos-grid');
       if (!grid) return;
@@ -1131,7 +1085,7 @@
       for (var r = 0; r < reposList.length; r++) {
         var repo = reposList.slice(r, r + 1).pop();
         var lang = repo.language || 'Codebase';
-        var desc = repo.description || 'Public GitHub development repository by Ahmed Saab.';
+        var desc = repo.description || 'Public GitHub development repository by Ahmad Saab.';
         var stars = repo.stargazers_count || 0;
         var forks = repo.forks_count || 0;
 
@@ -1140,10 +1094,7 @@
             '<div>' +
               '<div class="flex items-center justify-between text-xs font-mono text-zinc-500 mb-3">' +
                 '<span class="flex items-center gap-1.5 text-accent"><i data-lucide="folder-git-2" class="w-3.5 h-3.5"></i> REPO</span>' +
-                '<span class="flex items-center gap-2">' +
-                  '<span>★ ' + stars + '</span>' +
-                  '<span>⑂ ' + forks + '</span>' +
-                '</span>' +
+                '<span class="flex items-center gap-2"><span>★ ' + stars + '</span><span>⑂ ' + forks + '</span></span>' +
               '</div>' +
               '<h3 class="text-lg font-syne font-bold text-white group-hover:text-accent transition-colors">' + repo.name + '</h3>' +
               '<p class="text-zinc-400 text-xs mt-2 leading-relaxed">' + desc + '</p>' +
@@ -1162,71 +1113,25 @@
 
     function initGitHubFeed() {
       var fallback = [
-        {
-          name: 'mada',
-          description: 'Interactive modern front-end web architecture and responsive component systems.',
-          html_url: 'https://github.com/PsycoPython/mada',
-          language: 'JavaScript',
-          stargazers_count: 5,
-          forks_count: 1
-        },
-        {
-          name: 'Warehouse-Management-System',
-          description: 'Enterprise desktop inventory and POS management suite for smart devices store retail.',
-          html_url: 'https://github.com/PsycoPython',
-          language: 'C#',
-          stargazers_count: 3,
-          forks_count: 0
-        },
-        {
-          name: 'Al-Taymiyah-Library',
-          description: 'Digital catalog and library browsing web portal built with semantic HTML5 and vanilla JavaScript.',
-          html_url: 'https://github.com/PsycoPython',
-          language: 'HTML5',
-          stargazers_count: 2,
-          forks_count: 0
-        },
-        {
-          name: 'Personal-Portfolio-App',
-          description: 'Cross-platform mobile application portfolio built with Flutter and Dart framework.',
-          html_url: 'https://github.com/PsycoPython',
-          language: 'Dart',
-          stargazers_count: 3,
-          forks_count: 1
-        },
-        {
-          name: 'Competitive-Programming-Archive',
-          description: 'Collection of 189+ solved ICPC and Codeforces algorithmic solutions in C++.',
-          html_url: 'https://codeforces.com/submissions/0x-A7mvd/page/1',
-          language: 'C++',
-          stargazers_count: 6,
-          forks_count: 2
-        },
-        {
-          name: 'Node-Backend-Exploration',
-          description: 'Server runtime architectures, RESTful API endpoints, and scalable asynchronous services.',
-          html_url: 'https://github.com/PsycoPython',
-          language: 'Node.js',
-          stargazers_count: 4,
-          forks_count: 0
-        }
+        { name: 'mada', description: 'Interactive modern front-end web architecture and responsive component systems.', html_url: 'https://github.com/PsycoPython/mada', language: 'JavaScript', stargazers_count: 5, forks_count: 1 },
+        { name: 'Warehouse-Management-System', description: 'Desktop inventory and POS management suite for smart devices store retail.', html_url: 'https://github.com/PsycoPython', language: 'C#', stargazers_count: 3, forks_count: 0 },
+        { name: 'Al-Taymiyah-Library', description: 'Digital catalog and library browsing web portal built with semantic HTML5 and JavaScript.', html_url: 'https://github.com/PsycoPython', language: 'HTML5', stargazers_count: 2, forks_count: 0 },
+        { name: 'Personal-Portfolio-App', description: 'Cross-platform mobile application portfolio built with Flutter and Dart.', html_url: 'https://github.com/PsycoPython', language: 'Dart', stargazers_count: 3, forks_count: 1 },
+        { name: 'Problem-Solving-Archive', description: 'Collection of +100+ solved Codeforces and ICPC algorithmic solutions in C++.', html_url: 'https://codeforces.com/submissions/0x-A7mvd/page/1', language: 'C++', stargazers_count: 6, forks_count: 2 },
+        { name: 'Node-Backend-Exploration', description: 'Server runtime architectures, RESTful API endpoints, and scalable asynchronous services.', html_url: 'https://github.com/PsycoPython', language: 'Node.js', stargazers_count: 4, forks_count: 0 }
       ];
 
       fetch('https://api.github.com/users/PsycoPython/repos?sort=updated&per_page=6')
         .then(function(res) { return res.json(); })
         .then(function(data) {
-          if (Array.isArray(data) && data.length > 0) {
-            renderGitHubRepos(data);
-          } else {
-            renderGitHubRepos(fallback);
-          }
+          if (Array.isArray(data) && data.length > 0) renderGitHubRepos(data);
+          else renderGitHubRepos(fallback);
         })
-        .catch(function() {
-          renderGitHubRepos(fallback);
-        });
+        .catch(function() { renderGitHubRepos(fallback); });
     }
     initGitHubFeed();
 
+    // Terminal Modal
     window.toggleTerminal = function(show) {
       var modal = document.getElementById('terminal-modal');
       var input = document.getElementById('terminal-input');
@@ -1245,9 +1150,7 @@
       if ((e.ctrlKey || e.metaKey) && e.key && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         var modal = document.getElementById('terminal-modal');
-        if (modal) {
-          window.toggleTerminal(modal.classList.contains('hidden'));
-        }
+        if (modal) window.toggleTerminal(modal.classList.contains('hidden'));
       }
       if (e.key === 'Escape') {
         window.toggleTerminal(false);
@@ -1307,10 +1210,7 @@
           } else {
             var exists = false;
             for (var t = 0; t < window.themes.length; t++) {
-              if (window.themes[t].id === arg) {
-                exists = true;
-                break;
-              }
+              if (window.themes[t].id === arg) { exists = true; break; }
             }
             if (exists) {
               window.applyTheme(arg);
@@ -1322,7 +1222,7 @@
           break;
         case 'projects':
           printLine('1. Mada Platform (GitHub)');
-          printLine('2. Warehouse Management System (C# / .NET)');
+          printLine('2. Warehouse Management System (C# / OOP)');
           printLine('3. Al-Taymiyah Library (HTML/CSS/JS)');
           printLine('4. Personal Portfolio App (Flutter)');
           break;
@@ -1331,13 +1231,13 @@
           window.open('https://github.com/PsycoPython/mada', '_blank', 'noopener,noreferrer');
           break;
         case 'skills':
-          printLine('TECH STACK: React, JavaScript ES6+, TypeScript, HTML5, CSS3, Tailwind, Node.js, C#, Python, C++, Flutter, Dart, MATLAB');
+          printLine('TECH STACK: React, JavaScript, TypeScript, HTML5, CSS3, Node.js (In Prog), C#, Python (Basics), C++, Flutter, Dart, MATLAB (Basics)');
           break;
         case 'icpc':
-          printLine('ICPC PROFILE: ID JNVO0T4UN5FP | 189 Problems Solved | Competitive Programmer');
+          printLine('ICPC PROFILE: ID JNVO0T4UN5FP | +100 Problems Solved | Problem Solving Journey');
           break;
         case 'contact':
-          printLine('Email: saaba0054@gmail.com | Phone:  | Syria');
+          printLine('Email: saaba0054@gmail.com | Location: Syria | GitHub: @PsycoPython | Codeforces: @0x-A7mvd');
           break;
         case 'clear':
           if (terminalOutput) terminalOutput.innerHTML = '';
@@ -1350,12 +1250,13 @@
       }
     }
 
+    // Projects Data
     window.projectsData = {
       mada: {
         title: 'Mada Web Architecture',
         badge: 'GitHub Featured Repository',
         type: 'Open Source / Web Engineering',
-        desc: 'Repository engineered by Ahmed Saab focusing on responsive front-end components, clean design patterns, and modern web application logic.',
+        desc: 'Repository engineered by Ahmad Saab focusing on responsive front-end components, clean design patterns, and modern web application logic.',
         tags: ['JavaScript', 'HTML5', 'CSS3', 'Git'],
         link: 'https://github.com/PsycoPython/mada',
         linkText: 'Visit GitHub Repository'
@@ -1365,7 +1266,7 @@
         badge: 'Desktop Application',
         type: 'Smart Devices Store Retail System',
         desc: 'Engineered with C# object-oriented desktop architecture. Built to track complex retail hardware stock, automated invoice calculations, daily sales logs, and supplier records.',
-        tags: ['C#', '.NET', 'Desktop UI', 'Database'],
+        tags: ['C#', 'OOP', 'Desktop UI', 'Database'],
         link: 'mailto:saaba0054@gmail.com?subject=Inquiry regarding Warehouse Management System',
         linkText: 'Request Architecture Demo'
       },
@@ -1382,7 +1283,7 @@
         title: 'Personal Portfolio Mobile App',
         badge: 'Cross-Platform Mobile',
         type: 'Flutter & Dart Experience',
-        desc: 'A mobile application showcasing technical competencies, achievements, and ICPC statistics. Features smooth navigation, reactive state management, and clean dark UI.',
+        desc: 'A mobile application showcasing technical competencies, achievements, and Codeforces statistics. Features smooth navigation, reactive state management, and clean dark UI.',
         tags: ['Flutter', 'Dart', 'Cross-Platform', 'Mobile UI'],
         link: 'https://github.com/PsycoPython',
         linkText: 'View Developer Profile'
@@ -1436,7 +1337,6 @@
         duration: 1100,
         delay: window.anime.stagger(130)
       });
-
       window.anime({
         targets: '.sharp-card',
         translateY: [20, 0],
