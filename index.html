@@ -3,18 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ahmad Saab — Full-Stack & AI Engineer Portfolio</title>
+  <title>Ahmad Saab — Cyber-Minimalist Software Portfolio</title>
   
-  <!-- CDNs -->
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Anime.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <!-- Devicon CDN for Official Tech Icons -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
   
-  <!-- Fonts -->
+  <!-- Google Fonts: Syne, Space Grotesk, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
 
   <script>
     tailwind.config = {
@@ -32,6 +35,7 @@
   </script>
 
   <style>
+    /* 5 Curated Cyber Themes */
     :root, [data-theme="cyan"] {
       --bg-color: #040406;
       --surface-color: #0b0c12;
@@ -44,6 +48,7 @@
       --grid-line: rgba(0, 240, 255, 0.22);
       --theme-name: "CYBER_CYAN";
     }
+
     [data-theme="matrix"] {
       --bg-color: #020703;
       --surface-color: #051408;
@@ -56,6 +61,7 @@
       --grid-line: rgba(0, 255, 102, 0.22);
       --theme-name: "MATRIX_GREEN";
     }
+
     [data-theme="synthwave"] {
       --bg-color: #090314;
       --surface-color: #140728;
@@ -68,6 +74,7 @@
       --grid-line: rgba(255, 0, 127, 0.22);
       --theme-name: "TOKYO_SYNTH";
     }
+
     [data-theme="amber"] {
       --bg-color: #080502;
       --surface-color: #140e04;
@@ -80,6 +87,7 @@
       --grid-line: rgba(255, 176, 0, 0.22);
       --theme-name: "AMBER_CRT";
     }
+
     [data-theme="monochrome"] {
       --bg-color: #050505;
       --surface-color: #111111;
@@ -113,9 +121,14 @@
     .accent-modal-border { border-color: var(--accent) !important; }
 
     @keyframes moveCyberGrid {
-      0% { background-position: 0px 0px; }
-      100% { background-position: 60px 60px; }
+      0% {
+        background-position: 0px 0px;
+      }
+      100% {
+        background-position: 60px 60px;
+      }
     }
+
     .moving-grid-bg {
       position: fixed;
       inset: 0;
@@ -129,6 +142,7 @@
       pointer-events: none;
       z-index: 0;
     }
+
     .vignette-overlay {
       position: fixed;
       inset: 0;
@@ -148,11 +162,13 @@
       -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
     }
+
     .glass-modal-backdrop {
       background-color: rgba(0, 0, 0, 0.85);
       -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
     }
+
     .status-dock {
       background-color: rgba(11, 12, 18, 0.92);
       border: 1px solid var(--border-color);
@@ -170,8 +186,10 @@
 
     .custom-cursor-ring {
       position: fixed;
-      top: 0; left: 0;
-      width: 34px; height: 34px;
+      top: 0;
+      left: 0;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       border: 1.5px solid var(--accent);
       pointer-events: none;
@@ -182,8 +200,10 @@
     }
     .custom-cursor-dot {
       position: fixed;
-      top: 0; left: 0;
-      width: 6px; height: 6px;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background-color: var(--accent);
       pointer-events: none;
@@ -206,24 +226,99 @@
       transform: translateY(-2px);
     }
 
-    /* Media Queries */
+    .terminal-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .terminal-scroll::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+    }
+
+    /* ===================================================
+       RESPONSIVE MEDIA QUERIES & SCREEN ADAPTATIONS
+       =================================================== */
+
+    /* Touch & Mobile Pointer Optimization */
     @media (pointer: coarse), (hover: none) {
-      .custom-cursor-ring, .custom-cursor-dot { display: none !important; }
+      .custom-cursor-ring,
+      .custom-cursor-dot {
+        display: none !important;
+      }
     }
+
+    /* Small Mobile Devices (<= 480px) */
     @media (max-width: 480px) {
-      .moving-grid-bg { background-size: 38px 38px; animation-duration: 2.2s; }
-      .hero-title { font-size: 2.25rem !important; line-height: 1.15 !important; }
-      .photo-frame-box { width: 210px !important; height: 210px !important; }
-      .terminal-dump-box { font-size: 10px !important; padding: 0.75rem !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
-      .status-dock { font-size: 10px !important; padding: 0.5rem 0.75rem !important; }
-      .sharp-card { padding: 1rem !important; }
+      .moving-grid-bg {
+        background-size: 38px 38px;
+        animation-duration: 2.2s;
+      }
+      .hero-title {
+        font-size: 2.25rem !important;
+        line-height: 1.15 !important;
+      }
+      .photo-frame-box {
+        width: 210px !important;
+        height: 210px !important;
+      }
+      .terminal-dump-box {
+        font-size: 10px !important;
+        padding: 0.75rem !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+      }
+      .status-dock {
+        font-size: 10px !important;
+        padding: 0.5rem 0.75rem !important;
+      }
+      .sharp-card {
+        padding: 1rem !important;
+      }
     }
+
+    /* Tablets & Medium Screens (481px to 768px) */
     @media (min-width: 481px) and (max-width: 768px) {
-      .photo-frame-box { width: 250px !important; height: 250px !important; }
+      .photo-frame-box {
+        width: 250px !important;
+        height: 250px !important;
+      }
     }
+
+    /* Modals Responsive Handling for Mobile Screens */
     @media (max-height: 720px) {
-      .modal-inner-scroll { max-height: 72vh !important; overflow-y: auto !important; }
+      .modal-inner-scroll {
+        max-height: 72vh !important;
+        overflow-y: auto !important;
+      }
     }
+
+    /* ===================================================
+       PERFORMANCE MODE (LOW POWER / ECO / CPU OPTIMIZED)
+       =================================================== */
+    body.perf-mode .moving-grid-bg {
+      animation: none !important;
+      opacity: 0.12 !important;
+    }
+    body.perf-mode .photo-scanner {
+      display: none !important;
+      animation: none !important;
+    }
+    body.perf-mode .custom-cursor-ring,
+    body.perf-mode .custom-cursor-dot {
+      display: none !important;
+    }
+    body.perf-mode .sharp-card,
+    body.perf-mode .site-header,
+    body.perf-mode .status-dock,
+    body.perf-mode .glass-modal-backdrop {
+      -webkit-backdrop-filter: none !important;
+      backdrop-filter: none !important;
+      box-shadow: none !important;
+      transition: none !important;
+    }
+    body.perf-mode .sharp-card:hover {
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
   </style>
 </head>
 <body class="relative min-h-screen antialiased">
@@ -233,7 +328,7 @@
   <div id="cursor-ring" class="custom-cursor-ring hidden md:block"></div>
   <div id="cursor-dot" class="custom-cursor-dot hidden md:block"></div>
 
-  <!-- HEADER -->
+  <!-- NAVIGATION HEADER -->
   <header class="w-full site-header">
     <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between relative z-10">
       <div class="flex items-center space-x-3">
@@ -250,13 +345,17 @@
         <a href="#contact" class="hover:text-accent transition-colors">/06_CONTACT</a>
       </nav>
 
-      <div class="flex items-center space-x-2 sm:space-x-3">
-        <button id="theme-btn" type="button" onclick="window.cycleTheme()" class="px-2.5 sm:px-3 py-1.5 border border-zinc-800 hover:border-zinc-500 text-xs font-mono text-zinc-300 bg-zinc-900/80 flex items-center gap-2 cursor-pointer transition-all active:scale-95" title="Cycle Themes">
+      <div class="flex items-center space-x-3">
+        <button id="theme-btn" type="button" onclick="window.cycleTheme()" class="px-3 py-1.5 border border-zinc-800 hover:border-zinc-500 text-xs font-mono text-zinc-300 bg-zinc-900/80 flex items-center gap-2 cursor-pointer transition-all active:scale-95" title="Click to cycle themes">
           <i data-lucide="palette" class="w-3.5 h-3.5 text-accent"></i>
           <span id="theme-label" class="font-bold hidden sm:inline">CYBER_CYAN</span>
         </button>
+        <button id="perf-btn" type="button" onclick="window.togglePerfMode()" class="px-2.5 sm:px-3 py-1.5 border border-zinc-800 hover:border-zinc-500 text-xs font-mono text-zinc-300 bg-zinc-900/80 flex items-center gap-1.5 cursor-pointer transition-all active:scale-95" title="Toggle Low-Power / Performance Mode">
+          <i data-lucide="zap" class="w-3.5 h-3.5 text-accent" id="perf-icon"></i>
+          <span id="perf-label" class="font-bold">PERF: OFF</span>
+        </button>
 
-        <button id="audio-toggle" type="button" onclick="window.toggleAudio()" class="px-2 sm:px-2.5 py-1.5 border border-zinc-800 hover:border-zinc-600 text-[11px] font-mono text-zinc-400 bg-zinc-900/60 flex items-center gap-1.5 cursor-pointer" title="Toggle Audio FX">
+        <button id="audio-toggle" type="button" onclick="window.toggleAudio()" class="px-2.5 py-1.5 border border-zinc-800 hover:border-zinc-600 text-[11px] font-mono text-zinc-400 bg-zinc-900/60 flex items-center gap-1.5 cursor-pointer" title="Toggle audio feedback">
           <i data-lucide="volume-2" class="w-3.5 h-3.5 text-accent" id="audio-icon"></i>
           <span id="audio-label" class="hidden sm:inline">FX: ON</span>
         </button>
@@ -266,19 +365,24 @@
           <span>CTRL+K</span>
         </button>
 
-        <a href="#contact" class="px-2.5 sm:px-3.5 py-1.5 bg-accent font-mono text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-all flex items-center gap-1.5 shadow-accent">
+        <a href="#contact" class="px-3.5 py-1.5 bg-accent font-mono text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-all flex items-center gap-1.5 shadow-accent">
           <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
           <span class="hidden sm:inline">CLI_CONNECT</span>
         </a>
 
+        <!-- Mobile Navigation Toggle -->
         <button type="button" onclick="window.toggleMobileMenu()" class="md:hidden p-1.5 border border-zinc-800 hover:border-accent text-zinc-300 bg-zinc-900/80 cursor-pointer flex items-center justify-center transition-all" title="Toggle Navigation Menu">
           <i data-lucide="menu" class="w-4 h-4 text-accent"></i>
         </button>
       </div>
     </div>
     
-    <!-- Mobile Menu Drawer -->
+    <!-- Mobile Collapsible Navigation Menu -->
     <div id="mobile-menu-drawer" class="md:hidden hidden border-t themed-border bg-[#040406]/95 px-6 py-4 space-y-3 font-mono text-xs text-zinc-300">
+            <button type="button" onclick="window.togglePerfMode()" class="w-full text-left py-2 border-b border-zinc-900 flex items-center justify-between text-zinc-300 hover:text-accent font-mono text-xs">
+        <span class="flex items-center gap-2"><i data-lucide="zap" class="w-3.5 h-3.5 text-accent"></i> PERFORMANCE MODE</span>
+        <span id="mobile-perf-label" class="text-accent font-bold">NORMAL</span>
+      </button>
       <a href="#about" onclick="window.toggleMobileMenu(false)" class="block hover:text-accent transition-colors py-1.5 border-b border-zinc-900">/01_ABOUT</a>
       <a href="#codeforces" onclick="window.toggleMobileMenu(false)" class="block hover:text-accent transition-colors py-1.5 border-b border-zinc-900">/02_CODEFORCES</a>
       <a href="#projects" onclick="window.toggleMobileMenu(false)" class="block hover:text-accent transition-colors py-1.5 border-b border-zinc-900">/03_PROJECTS</a>
@@ -288,12 +392,12 @@
     </div>
   </header>
 
-  <!-- LIVE STATUS DOCK -->
+  <!-- LIVE SYSTEM TELEMETRY DOCK (Damascus Time & Uptime) -->
   <div class="max-w-7xl mx-auto px-6 pt-4 relative z-10">
-    <div class="status-dock px-4 py-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono">
+    <div class="status-dock px-4 py-2 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
       <div class="flex items-center space-x-2">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-        <span class="text-emerald-400 font-bold">STATUS: READY_FOR_DEPLOYMENT // 2026 INTERNSHIP</span>
+        <span id="system-status-text" class="text-emerald-400 font-bold">STATUS: READY_FOR_DEPLOYMENT // 2026 INTERNSHIP</span>
       </div>
       <div class="flex items-center space-x-4 text-zinc-400">
         <span class="flex items-center gap-1.5">
@@ -312,7 +416,7 @@
   <main class="max-w-7xl mx-auto px-6 py-8 lg:py-16 space-y-28 relative z-10">
     <!-- SECTION 1: HERO -->
     <section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-2">
-      <div class="lg:col-span-5 space-y-5 hero-text">
+      <div class="lg:col-span-5 space-y-6 hero-text">
         <div class="inline-flex items-center space-x-2 px-3 py-1 bg-zinc-900/90 border themed-border text-zinc-300 text-xs font-mono">
           <i data-lucide="activity" class="w-3.5 h-3.5 text-emerald-400 animate-pulse"></i>
           <span>OPEN FOR INTERNSHIP // FRONTEND & AI</span>
@@ -330,11 +434,8 @@
 
         <div class="text-zinc-400 text-sm sm:text-base leading-relaxed space-y-3 pt-1">
           <p>
-I am Ahmed Saab, a fourth-year Information Engineering student with a refined eye for UI/UX and a strong command of back-end architecture and system development. I bridge elegant front-end experiences with scalable back-end infrastructures, treating them as complementary forces. My ambition is to grow into a Full-Stack Developer and AI Engineer—leading projects from concept to intelligent, production-ready solutions that merge human-centric design with algorithmic power.
-
-
+            I am Ahmad Saab, a fourth-year Information Engineering student with a refined eye for UI/UX and a strong command of back-end architecture and system development. I bridge elegant front-end experiences with scalable back-end infrastructures, treating them as complementary forces. My ambition is to grow into a Full-Stack Developer and AI Engineer&mdash;leading projects from concept to intelligent, production-ready solutions that merge human-centric design with algorithmic power.
           </p>
-       
         </div>
 
         <div class="pt-2 flex flex-wrap gap-3 font-mono text-xs">
@@ -372,7 +473,7 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
             />
             
             <div class="absolute bottom-0 inset-x-0 bg-black/85 p-2 border-t border-zinc-800 flex items-center justify-between text-[10px] font-mono z-20">
-              <span class="text-zinc-300">Ahmad_SAAB.SQUARE</span>
+              <span class="text-zinc-300">Ahmad_SAAB.PFP</span>
               <span class="text-accent flex items-center gap-1 font-bold">
                 <span class="w-1.5 h-1.5 rounded-full bg-accent animate-ping"></span>
                 ACTIVE
@@ -386,7 +487,6 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
       <div class="lg:col-span-4 space-y-4">
         <div class="sharp-card p-5 border">
           <div class="flex items-center justify-between border-b border-zinc-800 pb-3 mb-3">
-            <span class="text-xs font-mono text-zinc-500 uppercase tracking-widest">// TELEMETRY_HUD</span>
             <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 border border-emerald-800">SYSTEM_ONLINE</span>
           </div>
 
@@ -400,7 +500,7 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
 
             <div class="flex justify-between items-center py-1 border-b border-zinc-900">
               <span class="text-zinc-400 flex items-center gap-2">
-                <i data-lucide="code-2" class="w-3.5 h-3.5 text-accent"></i> Codeforces Solved
+                <i data-lucide="code-2" class="w-3.5 h-3.5 text-accent"></i> ICPC Solved
               </span>
               <span class="text-accent font-bold">+100 Problems</span>
             </div>
@@ -414,9 +514,9 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
 
             <div class="flex justify-between items-center py-1 border-b border-zinc-900">
               <span class="text-zinc-400 flex items-center gap-2">
-                <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-accent"></i> Education
+                <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-accent"></i> Degree
               </span>
-              <span class="text-white">Informatics Engineering (4th Year)</span>
+              <span class="text-white">Information Engineering (4th Year)</span>
             </div>
 
             <div class="flex justify-between items-center pt-1">
@@ -436,24 +536,25 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
       </div>
     </section>
 
-    <!-- SECTION 2: CODEFORCES & PROBLEM SOLVING -->
+    <!-- SECTION 2: CODEFORCES & ALGORITHMIC RADAR (Option 1.1) -->
     <section id="codeforces" class="space-y-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-zinc-800 pb-4">
         <div>
           <span class="text-accent font-mono text-xs uppercase tracking-widest">// 02. PROBLEM SOLVING & ALGORITHMIC PRACTICE</span>
           <h2 class="text-3xl lg:text-4xl font-syne font-bold text-white mt-1 glitch-on-scroll">CODEFORCES & PROBLEM SOLVING JOURNEY</h2>
         </div>
-        <div class="flex items-center gap-3 text-xs font-mono mt-2 md:mt-0">
+                <div class="flex items-center gap-3 text-xs font-mono mt-2 md:mt-0">
           <a href="https://codeforces.com/profile/0x-A7mvd" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 bg-zinc-900 border border-zinc-800 hover:border-accent text-accent transition-all flex items-center gap-1.5">
-            <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Handle: @0x-A7mvd
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>  @0x-A7mvd
           </a>
-          <a href="https://codeforces.com/submissions/0x-A7mvd/page/1" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 bg-accent font-bold uppercase hover:opacity-90 transition-all flex items-center gap-1.5 shadow-accent">
+          <a href="https://codeforces.com/submissions/0x-A7mvd/page/1" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 bg-accent text-black font-bold uppercase hover:opacity-90 transition-all flex items-center gap-1.5 shadow-accent">
             View Submissions
           </a>
         </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Problem Solving Volume -->
         <div class="sharp-card p-6 border space-y-3">
           <div class="flex justify-between items-center text-xs font-mono text-zinc-500">
             <span>SOLVED_PROBLEMS</span>
@@ -461,7 +562,7 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
           </div>
           <div class="text-3xl font-syne font-bold text-white">+100+</div>
           <p class="text-zinc-400 text-xs leading-relaxed">
-            Problems solved on Codeforces and ICPC training archives, building structured analytical foundations.
+            Conquered problems across Codeforces, ICPC training gyms, and competitive programming archives.
           </p>
           <div class="pt-2 border-t border-zinc-900 text-[11px] font-mono text-accent flex items-center justify-between">
             <span>ICPC ID: JNVO0T4UN5FP</span>
@@ -469,6 +570,7 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
           </div>
         </div>
 
+        <!-- Dynamic Programming & Graphs -->
         <div class="sharp-card p-6 border space-y-3">
           <div class="flex justify-between items-center text-xs font-mono text-zinc-500">
             <span>PRACTICE_DOMAINS</span>
@@ -479,11 +581,12 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
             Algorithmic foundations, linear searches, sorting algorithms, conditional simulations, and logical deductions.
           </p>
           <div class="pt-2 border-t border-zinc-900 text-[11px] font-mono text-zinc-400 flex items-center justify-between">
-            <span>LOGIC</span>
-            <span class="text-accent">Deductive Reasoning</span>
+            <span>COMPLEXITY</span>
+            <span class="text-accent">O(V + E) / O(N^2)</span>
           </div>
         </div>
 
+        <!-- Data Structures -->
         <div class="sharp-card p-6 border space-y-3">
           <div class="flex justify-between items-center text-xs font-mono text-zinc-500">
             <span>DATA_STRUCTURES_FOUNDATIONS</span>
@@ -494,23 +597,24 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
             Fundamental data structures, array manipulations, hash maps, basic queues, and two-pointer techniques.
           </p>
           <div class="pt-2 border-t border-zinc-900 text-[11px] font-mono text-zinc-400 flex items-center justify-between">
-            <span>STRUCTURES</span>
-            <span class="text-purple-400">Essential Memory</span>
+            <span>EFFICIENCY</span>
+            <span class="text-purple-400">O(N log N)</span>
           </div>
         </div>
 
+        <!-- Execution Stack -->
         <div class="sharp-card p-6 border space-y-3">
           <div class="flex justify-between items-center text-xs font-mono text-zinc-500">
-            <span>EXECUTION_LANGUAGE</span>
+            <span>EXECUTION_STACK</span>
             <i class="devicon-cplusplus-plain colored text-lg"></i>
           </div>
-          <div class="text-xl font-syne font-bold text-white">C++ Problem Solving</div>
+          <div class="text-xl font-syne font-bold text-white">C++ & Fast I/O</div>
           <p class="text-zinc-400 text-xs leading-relaxed">
-            Standard Template Library (STL), vectors, sorting functions, memory management, and fast execution routines.
+            STL vectors, maps, bitsets, competitive macro templates, and memory-optimized pointer management.
           </p>
           <div class="pt-2 border-t border-zinc-900 text-[11px] font-mono text-zinc-400 flex items-center justify-between">
             <span>RUNTIME</span>
-            <span class="text-emerald-400">High Performance</span>
+            <span class="text-emerald-400">&lt; 150ms AVG</span>
           </div>
         </div>
       </div>
@@ -570,7 +674,8 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
           </div>
           <div class="mt-6 pt-4 border-t border-zinc-900 flex items-center justify-between">
             <div class="flex gap-2 items-center">
-              <span class="px-2 py-0.5 bg-zinc-900 text-accent text-[11px] font-mono border border-zinc-800">C# OOP</span>
+              <i class="devicon-csharp-plain colored text-base"></i>
+              
             </div>
             <span class="text-zinc-400 text-xs font-mono flex items-center gap-1">Inspect <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>
           </div>
@@ -625,7 +730,7 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
       </div>
     </section>
 
-    <!-- SECTION 4: GITHUB REPOSITORIES LIVE FEED -->
+    <!-- SECTION 4: GITHUB REPOSITORIES LIVE FEED (Option 2) -->
     <section id="github-repos" class="space-y-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-zinc-800 pb-4">
         <div>
@@ -653,7 +758,6 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Frontend -->
         <div class="sharp-card p-6 border space-y-4">
           <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
             <span class="text-accent font-mono text-xs font-bold uppercase tracking-wider">FRONTEND CORE</span>
@@ -687,7 +791,6 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
           </div>
         </div>
 
-        <!-- Backend -->
         <div class="sharp-card p-6 border space-y-4">
           <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
             <span class="text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider">BACKEND & ROADMAP</span>
@@ -696,11 +799,11 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
           <div class="grid grid-cols-2 gap-3 font-mono text-xs">
             <div class="flex items-center gap-2.5 p-2 bg-zinc-900/60 border border-emerald-900/40">
               <i class="devicon-nodejs-plain colored text-xl"></i>
-              <span class="text-emerald-300">Node.js (In Prog)</span>
+              <span class="text-emerald-300">Node.js</span>
             </div>
             <div class="flex items-center gap-2.5 p-2 bg-zinc-900/60 border border-zinc-800">
               <i class="devicon-csharp-plain colored text-xl"></i>
-              <span>C# (OOP)</span>
+              <span>C#</span>
             </div>
             <div class="flex items-center gap-2.5 p-2 bg-zinc-900/60 border border-zinc-800">
               <i class="devicon-python-plain colored text-xl"></i>
@@ -713,10 +816,9 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
           </div>
         </div>
 
-        <!-- Algorithms -->
         <div class="sharp-card p-6 border space-y-4">
           <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
-            <span class="text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">FOUNDATIONS & LOGIC</span>
+            <span class="text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">ALGORITHMS & CORE</span>
             <i class="devicon-cplusplus-plain colored text-lg"></i>
           </div>
           <div class="grid grid-cols-2 gap-3 font-mono text-xs">
@@ -726,7 +828,7 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
             </div>
             <div class="flex items-center gap-2.5 p-2 bg-zinc-900/60 border border-amber-900/40">
               <i class="devicon-codepen-plain text-amber-400 text-xl"></i>
-              <span class="text-amber-300">+100 CF Solved</span>
+              <span class="text-amber-300">+100 ICPC</span>
             </div>
             <div class="flex items-center gap-2.5 p-2 bg-zinc-900/60 border border-zinc-800">
               <i class="devicon-matlab-plain colored text-xl"></i>
@@ -739,7 +841,6 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
           </div>
         </div>
 
-        <!-- Mobile & Environment -->
         <div class="sharp-card p-6 border space-y-4">
           <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
             <span class="text-purple-400 font-mono text-xs font-bold uppercase tracking-wider">MOBILE & DEVOPS</span>
@@ -767,17 +868,18 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
       </div>
     </section>
 
-    <!-- SECTION 6: CONTACT AS A DEDICATED CYBER TERMINAL -->
+    <!-- SECTION 6: CONTACT AS A DEDICATED CYBER TERMINAL (Option 5) -->
     <section id="contact" class="space-y-6">
       <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-zinc-800 pb-4">
         <div>
           <span class="text-accent font-mono text-xs uppercase tracking-widest">// 06. SECURE COMMUNICATION PORT</span>
           <h2 class="text-3xl lg:text-4xl font-syne font-bold text-white mt-1 glitch-on-scroll">TERMINAL ACCESS GATEWAY</h2>
         </div>
-        <p class="text-xs font-mono text-zinc-500 mt-2 md:mt-0">BASH // INTERACTIVE CLI</p>
+        <p class="text-xs font-mono text-zinc-500 mt-2 md:mt-0">BASH // CLI</p>
       </div>
 
       <div class="sharp-card overflow-hidden border accent-modal-border">
+        <!-- Terminal Titlebar -->
         <div class="bg-zinc-900/90 border-b border-zinc-800 px-4 py-3 flex items-center justify-between">
           <div class="flex items-center space-x-2">
             <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
@@ -788,6 +890,7 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
           <span class="text-xs font-mono text-accent">READY</span>
         </div>
 
+        <!-- Terminal Body -->
         <div class="p-6 md:p-8 space-y-6 font-mono text-xs">
           <div>
             <span class="text-accent font-bold">$ ./dump_credentials.sh</span>
@@ -797,7 +900,7 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
               <p><span class="text-zinc-500">[+] LOCATION:</span>     <span class="text-white">Syria</span></p>
               <p><span class="text-zinc-500">[+] CODEFORCES:</span>   <a href="https://codeforces.com/profile/0x-A7mvd" target="_blank" rel="noopener noreferrer" class="text-accent underline">@0x-A7mvd (+100 Solved)</a></p>
               <p><span class="text-zinc-500">[+] GITHUB_HUB:</span>   <a href="https://github.com/PsycoPython" target="_blank" rel="noopener noreferrer" class="text-accent underline">@PsycoPython</a></p>
-            </div>
+              </div>
           </div>
 
           <div>
@@ -822,6 +925,15 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
                 <i data-lucide="copy" class="w-3.5 h-3.5 text-accent"></i>
                 <span id="copy-btn-text">./copy_clipboard.sh</span>
               </button>
+
+              <button type="button" onclick="window.togglePerfMode()" id="terminal-perf-btn" class="px-4 py-2.5 border border-zinc-800 hover:border-emerald-500 text-zinc-300 transition-all flex items-center gap-2 bg-zinc-900/60 cursor-pointer text-xs">
+                <i data-lucide="zap" class="w-3.5 h-3.5 text-emerald-400"></i>
+                <span id="terminal-perf-btn-text">./toggle_perf_mode.sh</span>
+              </button>
+              <button type="button" onclick="window.togglePerfMode()" class="px-4 py-2.5 border border-zinc-800 hover:border-accent text-zinc-300 transition-all flex items-center gap-2 bg-zinc-900/60 cursor-pointer text-xs">
+                <i data-lucide="zap" class="w-3.5 h-3.5 text-accent"></i>
+                <span id="terminal-perf-btn-text">./toggle_perf_mode.sh</span>
+              </button>
             </div>
           </div>
         </div>
@@ -830,7 +942,7 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
   </main>
 
   <footer class="border-t border-zinc-900 py-8 text-center text-zinc-600 text-xs font-mono relative z-10">
-    Ahmad SAAB &copy; 2026 // CYBER-MINIMALIST PORTFOLIO ARCHITECTURE
+    Ahmad SAAB &copy; 2026 
   </footer>
 
   <!-- TERMINAL COMMAND PALETTE (CTRL + K) -->
@@ -846,7 +958,7 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
         <button onclick="window.toggleTerminal(false)" type="button" class="text-zinc-500 hover:text-white text-xs font-mono">[ESC]</button>
       </div>
 
-      <div id="terminal-output" class="p-4 font-mono text-xs text-zinc-300 h-64 overflow-y-auto space-y-2 terminal-scroll modal-inner-scroll">
+      <div id="terminal-output" class="p-4 font-mono text-xs text-zinc-300 h-64 overflow-y-auto space-y-2 terminal-scroll">
         <p class="text-accent">&gt; Cyber-Minimal System Initialized [v4.27].</p>
         <p class="text-zinc-500">&gt; Type <span class="text-white font-bold">help</span> to view commands, or try <span class="text-accent">codeforces</span>, <span class="text-accent">repos</span>, <span class="text-accent">theme</span>, <span class="text-accent">contact</span>, <span class="text-accent">clear</span>.</p>
       </div>
@@ -858,23 +970,78 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
     </div>
   </div>
 
-  <!-- PROJECT INSPECTION MODAL -->
+
+  
+
+    <!-- PROJECT INSPECTION MODAL -->
   <div id="project-modal" class="fixed inset-0 z-50 glass-modal-backdrop hidden flex items-center justify-center p-4">
-    <div class="sharp-card border w-full max-w-xl p-6 relative accent-modal-border modal-inner-scroll">
-      <button onclick="window.closeModal()" type="button" class="absolute top-4 right-4 text-zinc-500 hover:text-white font-mono text-xs border border-zinc-800 px-2 py-1">
-        [CLOSE X]
-      </button>
-      <div id="modal-content" class="space-y-4 font-mono"></div>
+    <div class="sharp-card border w-full max-w-xl overflow-hidden accent-modal-border modal-inner-scroll shadow-2xl">
+      <!-- Dedicated Modal Titlebar with Close Button -->
+      <div class="bg-zinc-900/90 border-b border-zinc-800 px-5 py-3 flex items-center justify-between">
+        <div class="flex items-center space-x-2 font-mono text-xs">
+          <span class="w-2.5 h-2.5 rounded-full bg-red-500/80 cursor-pointer" onclick="window.closeModal()" title="Close"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+        </div>
+        <button onclick="window.closeModal()" type="button" class="text-zinc-400 hover:text-white font-mono text-xs border border-zinc-800 hover:border-accent px-2.5 py-1 transition-all cursor-pointer">
+          [ESC / CLOSE]
+        </button>
+      </div>
+      <!-- Modal Content Body -->
+      <div id="modal-content" class="p-6 space-y-4 font-mono"></div>
     </div>
   </div>
 
   <!-- SCRIPTS -->
   <script>
-    if (window.lucide) {
-      window.lucide.createIcons();
-    }
 
-    // Mobile Navigation Drawer
+    
+        // Performance Mode (Low-Power / Eco Mode)
+    window.perfMode = false;
+    window.togglePerfMode = function() {
+      window.perfMode = !window.perfMode;
+      document.body.classList.toggle('perf-mode', window.perfMode);
+
+      var perfBtn = document.getElementById('perf-btn');
+      var perfLabel = document.getElementById('perf-label');
+      var mobileLabel = document.getElementById('mobile-perf-label');
+      var perfIcon = document.getElementById('perf-icon');
+      var terminalPerfText = document.getElementById('terminal-perf-btn-text');
+      var statusBadge = document.getElementById('system-status-text');
+
+      if (window.perfMode) {
+        if (perfLabel) perfLabel.innerText = 'ECO: ON';
+        if (mobileLabel) mobileLabel.innerText = 'ECO: ON';
+        if (perfBtn) {
+          perfBtn.classList.remove('border-zinc-800');
+          perfBtn.classList.add('border-emerald-500', 'bg-emerald-950/70', 'text-emerald-300');
+        }
+        if (terminalPerfText) {
+          terminalPerfText.innerText = './perf_mode_active [ECO]';
+        }
+        if (statusBadge) {
+          statusBadge.innerText = 'STATUS: ⚡ ECO_MODE_ACTIVE // REDUCED_CPU_LOAD';
+        }
+        window.playTone(340, 'square', 0.1);
+      } else {
+        if (perfLabel) perfLabel.innerText = 'PERF: OFF';
+        if (mobileLabel) mobileLabel.innerText = 'NORMAL';
+        if (perfBtn) {
+          perfBtn.classList.remove('border-emerald-500', 'bg-emerald-950/70', 'text-emerald-300');
+          perfBtn.classList.add('border-zinc-800');
+        }
+        if (terminalPerfText) {
+          terminalPerfText.innerText = './toggle_perf_mode.sh';
+        }
+        if (statusBadge) {
+          statusBadge.innerText = 'STATUS: READY_FOR_DEPLOYMENT // 2026 INTERNSHIP';
+        }
+        window.playTone(720, 'sine', 0.08);
+      }
+    };
+
+    
+
     window.toggleMobileMenu = function(forceClose) {
       var drawer = document.getElementById('mobile-menu-drawer');
       if (!drawer) return;
@@ -885,7 +1052,10 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
       }
     };
 
-    // Damascus Clock
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+
     function updateDamascusClock() {
       var el = document.getElementById('damascus-clock');
       if (el) {
@@ -897,7 +1067,6 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
     setInterval(updateDamascusClock, 1000);
     updateDamascusClock();
 
-    // Text Scramble Effect
     window.scrambleText = function(element) {
       var originalHtml = element.getAttribute('data-original-html') || element.innerHTML;
       var originalText = element.getAttribute('data-original-text') || element.innerText.trim();
@@ -948,7 +1117,6 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
     }
     setTimeout(initScrollGlitch, 150);
 
-    // Themes
     window.themes = [
       { id: 'cyan', name: 'CYBER_CYAN' },
       { id: 'matrix', name: 'MATRIX_GREEN' },
@@ -985,7 +1153,6 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
       window.applyTheme(window.themes[window.currentThemeIndex].id);
     };
 
-    // Audio Synth
     window.audioEnabled = true;
     var AudioContextClass = window.AudioContext || window.webkitAudioContext;
     var audioCtx = null;
@@ -1002,7 +1169,9 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
       try {
         var ctx = getAudioContext();
         if (!ctx) return;
-        if (ctx.state === 'suspended') ctx.resume();
+        if (ctx.state === 'suspended') {
+          ctx.resume();
+        }
         var osc = ctx.createOscillator();
         var gain = ctx.createGain();
         osc.type = type || 'sine';
@@ -1019,8 +1188,12 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
     window.toggleAudio = function() {
       window.audioEnabled = !window.audioEnabled;
       var lbl = document.getElementById('audio-label');
-      if (lbl) lbl.innerText = window.audioEnabled ? 'FX: ON' : 'FX: OFF';
-      if (window.audioEnabled) window.playTone(880, 'triangle', 0.1);
+      if (lbl) {
+        lbl.innerText = window.audioEnabled ? 'FX: ON' : 'FX: OFF';
+      }
+      if (window.audioEnabled) {
+        window.playTone(880, 'triangle', 0.1);
+      }
     };
 
     document.querySelectorAll('a, button').forEach(function(el) {
@@ -1029,7 +1202,7 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
     });
 
     window.copyContact = function() {
-      var data = 'Ahmad Saab | saaba0054@gmail.com | Location: Syria | https://github.com/PsycoPython';
+      var data = 'Ahmad Saab | saaba0054@gmail.com |  | https://github.com/PsycoPython';
       navigator.clipboard.writeText(data).then(function() {
         var btn = document.getElementById('copy-btn-text');
         if (btn) {
@@ -1039,7 +1212,6 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
       });
     };
 
-    // Cursor Follower
     var cursorRing = document.getElementById('cursor-ring');
     var cursorDot = document.getElementById('cursor-dot');
     var targetX = -100, targetY = -100;
@@ -1077,7 +1249,6 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
       cursorActive = false;
     });
 
-    // GitHub Repos API Pipeline
     function renderGitHubRepos(reposList) {
       var grid = document.getElementById('github-repos-grid');
       if (!grid) return;
@@ -1094,7 +1265,10 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
             '<div>' +
               '<div class="flex items-center justify-between text-xs font-mono text-zinc-500 mb-3">' +
                 '<span class="flex items-center gap-1.5 text-accent"><i data-lucide="folder-git-2" class="w-3.5 h-3.5"></i> REPO</span>' +
-                '<span class="flex items-center gap-2"><span>★ ' + stars + '</span><span>⑂ ' + forks + '</span></span>' +
+                '<span class="flex items-center gap-2">' +
+                  '<span>★ ' + stars + '</span>' +
+                  '<span>⑂ ' + forks + '</span>' +
+                '</span>' +
               '</div>' +
               '<h3 class="text-lg font-syne font-bold text-white group-hover:text-accent transition-colors">' + repo.name + '</h3>' +
               '<p class="text-zinc-400 text-xs mt-2 leading-relaxed">' + desc + '</p>' +
@@ -1113,25 +1287,71 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
 
     function initGitHubFeed() {
       var fallback = [
-        { name: 'mada', description: 'Interactive modern front-end web architecture and responsive component systems.', html_url: 'https://github.com/PsycoPython/mada', language: 'JavaScript', stargazers_count: 5, forks_count: 1 },
-        { name: 'Warehouse-Management-System', description: 'Desktop inventory and POS management suite for smart devices store retail.', html_url: 'https://github.com/PsycoPython', language: 'C#', stargazers_count: 3, forks_count: 0 },
-        { name: 'Al-Taymiyah-Library', description: 'Digital catalog and library browsing web portal built with semantic HTML5 and JavaScript.', html_url: 'https://github.com/PsycoPython', language: 'HTML5', stargazers_count: 2, forks_count: 0 },
-        { name: 'Personal-Portfolio-App', description: 'Cross-platform mobile application portfolio built with Flutter and Dart.', html_url: 'https://github.com/PsycoPython', language: 'Dart', stargazers_count: 3, forks_count: 1 },
-        { name: 'Problem-Solving-Archive', description: 'Collection of +100+ solved Codeforces and ICPC algorithmic solutions in C++.', html_url: 'https://codeforces.com/submissions/0x-A7mvd/page/1', language: 'C++', stargazers_count: 6, forks_count: 2 },
-        { name: 'Node-Backend-Exploration', description: 'Server runtime architectures, RESTful API endpoints, and scalable asynchronous services.', html_url: 'https://github.com/PsycoPython', language: 'Node.js', stargazers_count: 4, forks_count: 0 }
+        {
+          name: 'mada',
+          description: 'Interactive modern front-end web architecture and responsive component systems.',
+          html_url: 'https://github.com/PsycoPython/mada',
+          language: 'JavaScript',
+          stargazers_count: 5,
+          forks_count: 1
+        },
+        {
+          name: 'Warehouse-Management-System',
+          description: 'Enterprise desktop inventory and POS management suite for smart devices store retail.',
+          html_url: 'https://github.com/PsycoPython',
+          language: 'C#',
+          stargazers_count: 3,
+          forks_count: 0
+        },
+        {
+          name: 'Al-Taymiyah-Library',
+          description: 'Digital catalog and library browsing web portal built with semantic HTML5 and vanilla JavaScript.',
+          html_url: 'https://github.com/PsycoPython',
+          language: 'HTML5',
+          stargazers_count: 2,
+          forks_count: 0
+        },
+        {
+          name: 'Personal-Portfolio-App',
+          description: 'Cross-platform mobile application portfolio built with Flutter and Dart framework.',
+          html_url: 'https://github.com/PsycoPython',
+          language: 'Dart',
+          stargazers_count: 3,
+          forks_count: 1
+        },
+        {
+          name: 'Competitive-Programming-Archive',
+          description: 'Collection of +100+ solved ICPC and Codeforces algorithmic solutions in C++.',
+          html_url: 'https://codeforces.com/submissions/0x-A7mvd/page/1',
+          language: 'C++',
+          stargazers_count: 6,
+          forks_count: 2
+        },
+        {
+          name: 'Node-Backend-Exploration',
+          description: 'Server runtime architectures, RESTful API endpoints, and scalable asynchronous services.',
+          html_url: 'https://github.com/PsycoPython',
+          language: 'Node.js',
+          stargazers_count: 4,
+          forks_count: 0
+        }
       ];
 
       fetch('https://api.github.com/users/PsycoPython/repos?sort=updated&per_page=6')
         .then(function(res) { return res.json(); })
         .then(function(data) {
-          if (Array.isArray(data) && data.length > 0) renderGitHubRepos(data);
-          else renderGitHubRepos(fallback);
+          if (Array.isArray(data) && data.length > 0) {
+            renderGitHubRepos(data);
+          } else {
+            renderGitHubRepos(fallback);
+          }
         })
-        .catch(function() { renderGitHubRepos(fallback); });
+        .catch(function() {
+          renderGitHubRepos(fallback);
+        });
     }
     initGitHubFeed();
 
-    // Terminal Modal
     window.toggleTerminal = function(show) {
       var modal = document.getElementById('terminal-modal');
       var input = document.getElementById('terminal-input');
@@ -1150,7 +1370,9 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
       if ((e.ctrlKey || e.metaKey) && e.key && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         var modal = document.getElementById('terminal-modal');
-        if (modal) window.toggleTerminal(modal.classList.contains('hidden'));
+        if (modal) {
+          window.toggleTerminal(modal.classList.contains('hidden'));
+        }
       }
       if (e.key === 'Escape') {
         window.toggleTerminal(false);
@@ -1189,8 +1411,18 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
       var arg = parts.join(' ').toLowerCase();
 
       switch (mainCmd) {
+        case 'perf':
+        case 'performance':
+        case 'eco':
+          window.togglePerfMode();
+          if (window.perfMode) {
+            printLine("<span class='text-emerald-400 font-bold'>[ECO MODE ACTIVATED]</span> Background animation paused. GPU rendering overhead eliminated for battery optimization.", 'text-emerald-300');
+          } else {
+            printLine("<span class='text-accent font-bold'>[PERFORMANCE RESTORED]</span> Cyber grid movement and full visual effects re-enabled.", 'text-zinc-300');
+          }
+          break;
         case 'help':
-          printLine("AVAILABLE COMMANDS: <span class='text-white font-bold'>codeforces, repos, theme, projects, mada, skills, contact, icpc, clear, exit</span>");
+          printLine("AVAILABLE COMMANDS: <span class='text-white font-bold'>codeforces, repos, theme, projects, mada, skills, contact, perf, icpc, clear, exit</span>");
           printLine("Try: <span class='text-accent'>codeforces</span>, <span class='text-accent'>repos</span>, <span class='text-accent'>theme matrix</span>");
           break;
         case 'codeforces':
@@ -1210,7 +1442,10 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
           } else {
             var exists = false;
             for (var t = 0; t < window.themes.length; t++) {
-              if (window.themes[t].id === arg) { exists = true; break; }
+              if (window.themes[t].id === arg) {
+                exists = true;
+                break;
+              }
             }
             if (exists) {
               window.applyTheme(arg);
@@ -1222,7 +1457,7 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
           break;
         case 'projects':
           printLine('1. Mada Platform (GitHub)');
-          printLine('2. Warehouse Management System (C# / OOP)');
+          printLine('2. Warehouse Management System (C# / .NET)');
           printLine('3. Al-Taymiyah Library (HTML/CSS/JS)');
           printLine('4. Personal Portfolio App (Flutter)');
           break;
@@ -1231,13 +1466,13 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
           window.open('https://github.com/PsycoPython/mada', '_blank', 'noopener,noreferrer');
           break;
         case 'skills':
-          printLine('TECH STACK: React, JavaScript, TypeScript, HTML5, CSS3, Node.js (In Prog), C#, Python (Basics), C++, Flutter, Dart, MATLAB (Basics)');
+          printLine('TECH STACK: React, JavaScript ES6+, TypeScript, HTML5, CSS3, Tailwind, Node.js, C#, Python, C++, Flutter, Dart, MATLAB');
           break;
         case 'icpc':
-          printLine('ICPC PROFILE: ID JNVO0T4UN5FP | +100 Problems Solved | Problem Solving Journey');
+          printLine('ICPC PROFILE: ID JNVO0T4UN5FP | +100 Problems Solved | Competitive Programmer');
           break;
         case 'contact':
-          printLine('Email: saaba0054@gmail.com | Location: Syria | GitHub: @PsycoPython | Codeforces: @0x-A7mvd');
+          printLine('Email: saaba0054@gmail.com | Phone:  | Syria');
           break;
         case 'clear':
           if (terminalOutput) terminalOutput.innerHTML = '';
@@ -1250,7 +1485,6 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
       }
     }
 
-    // Projects Data
     window.projectsData = {
       mada: {
         title: 'Mada Web Architecture',
@@ -1266,7 +1500,7 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
         badge: 'Desktop Application',
         type: 'Smart Devices Store Retail System',
         desc: 'Engineered with C# object-oriented desktop architecture. Built to track complex retail hardware stock, automated invoice calculations, daily sales logs, and supplier records.',
-        tags: ['C#', 'OOP', 'Desktop UI', 'Database'],
+        tags: ['C#', '.NET', 'Desktop UI', 'Database'],
         link: 'mailto:saaba0054@gmail.com?subject=Inquiry regarding Warehouse Management System',
         linkText: 'Request Architecture Demo'
       },
@@ -1283,7 +1517,7 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
         title: 'Personal Portfolio Mobile App',
         badge: 'Cross-Platform Mobile',
         type: 'Flutter & Dart Experience',
-        desc: 'A mobile application showcasing technical competencies, achievements, and Codeforces statistics. Features smooth navigation, reactive state management, and clean dark UI.',
+        desc: 'A mobile application showcasing technical competencies, achievements, and ICPC statistics. Features smooth navigation, reactive state management, and clean dark UI.',
         tags: ['Flutter', 'Dart', 'Cross-Platform', 'Mobile UI'],
         link: 'https://github.com/PsycoPython',
         linkText: 'View Developer Profile'
@@ -1302,9 +1536,9 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
         }).join('');
 
         content.innerHTML = 
-          '<div class="flex items-center justify-between border-b border-zinc-800 pb-3">' +
-            '<span class="text-xs text-accent font-mono tracking-widest">' + p.badge + '</span>' +
-            '<span class="text-xs text-zinc-500 font-mono">' + p.type + '</span>' +
+          '<div class="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-800 pb-3">' +
+            '<span class="text-xs text-accent font-mono font-bold tracking-widest">' + p.badge + '</span>' +
+            '<span class="text-xs text-zinc-300 font-mono bg-zinc-900/90 px-2 py-0.5 border border-zinc-800">' + p.type + '</span>' +
           '</div>' +
           '<h3 class="text-2xl font-syne font-bold text-white">' + p.title + '</h3>' +
           '<p class="text-zinc-400 text-sm leading-relaxed">' + p.desc + '</p>' +
@@ -1337,6 +1571,7 @@ I am Ahmed Saab, a fourth-year Information Engineering student with a refined ey
         duration: 1100,
         delay: window.anime.stagger(130)
       });
+
       window.anime({
         targets: '.sharp-card',
         translateY: [20, 0],
